@@ -1,4 +1,4 @@
-package com.globallogic.simple.pages;
+package org.auto.simple.pages;
 
 import org.openqa.selenium.WebDriver;
 

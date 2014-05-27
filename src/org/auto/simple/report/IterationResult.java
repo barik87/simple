@@ -1,6 +1,6 @@
-package com.globallogic.simple.report;
+package org.auto.simple.report;
 
-import com.globallogic.simple.enums.Status;
+import org.auto.simple.enums.Status;
 
 public class IterationResult {
 	private int iterationNumber;

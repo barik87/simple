@@ -1,8 +1,8 @@
-package com.globallogic.simple.tests.users;
+package org.auto.simple.tests.users;
 
-import com.globallogic.simple.pages.LoginPage;
-import com.globallogic.simple.tests.BaseTest;
-import com.globallogic.simple.utils.NavigationUtils;
+import org.auto.simple.pages.LoginPage;
+import org.auto.simple.tests.BaseTest;
+import org.auto.simple.utils.NavigationUtils;
 
 /**
  * This test verifies validation of user credentials on login page.

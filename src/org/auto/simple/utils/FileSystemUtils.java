@@ -1,4 +1,4 @@
-package com.globallogic.simple.utils;
+package org.auto.simple.utils;
 
 import java.io.BufferedReader;
 import java.io.File;

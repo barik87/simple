@@ -1,9 +1,9 @@
-package com.globallogic.simple.report;
+package org.auto.simple.report;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.globallogic.simple.enums.Status;
+import org.auto.simple.enums.Status;
 
 /**
  * This class generates HTML report.

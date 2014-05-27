@@ -1,10 +1,9 @@
-package com.globallogic.simple.pages;
+package org.auto.simple.pages;
 
+import org.auto.simple.report.ErrorsHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.globallogic.simple.report.ErrorsHolder;
 
 public class LoginPage extends BasePage {
 

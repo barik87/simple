@@ -1,4 +1,4 @@
-package com.globallogic.simple.enums;
+package org.auto.simple.enums;
 
 public enum Status {
 	PASSED("PASSED  "), FAILED("FAILED  "), WARNING("WARNING "), SKIPPED("SKIPPED ");

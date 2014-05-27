@@ -1,17 +1,16 @@
-package com.globallogic.simple.tests;
+package org.auto.simple.tests;
 
 import java.util.HashMap;
 import java.util.List;
 
+import org.auto.simple.data.DataFile;
+import org.auto.simple.report.ErrorsHolder;
+import org.auto.simple.report.Reporter;
+import org.auto.simple.utils.FileSystemUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.globallogic.simple.data.DataFile;
-import com.globallogic.simple.report.ErrorsHolder;
-import com.globallogic.simple.report.Reporter;
-import com.globallogic.simple.utils.FileSystemUtils;
 
 /**
  * Class that contains properties and methods which are common for all the tests. Start point of tests execution -

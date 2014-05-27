@@ -1,4 +1,4 @@
-package com.globallogic.simple.data;
+package org.auto.simple.data;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-
-import com.globallogic.simple.utils.FileSystemUtils;
+import org.auto.simple.utils.FileSystemUtils;
 
 public class DataFile {
 

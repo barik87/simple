@@ -1,8 +1,7 @@
-package com.globallogic.simple.utils;
+package org.auto.simple.utils;
 
+import org.auto.simple.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
-
-import com.globallogic.simple.pages.LoginPage;
 
 public class NavigationUtils {
 	public static LoginPage startWebApplication(WebDriver browser) {
