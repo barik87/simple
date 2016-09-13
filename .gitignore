@@ -7,5 +7,5 @@ target/
 *.ear
 
 ### JetBrains template
-.idea/
-simple.iml
+/.idea/
+/simple.iml
