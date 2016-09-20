@@ -1,7 +1,5 @@
 package org.auto.simple.report;
 
-import org.auto.simple.enums.Status;
-
 public class IterationResult {
     private int iterationNumber;
     private Status status;

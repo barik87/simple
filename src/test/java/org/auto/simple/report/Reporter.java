@@ -3,8 +3,6 @@ package org.auto.simple.report;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.auto.simple.enums.Status;
-
 /**
  * This class generates HTML report.
  */
@@ -15,7 +13,7 @@ public class Reporter {
     private String failedIterations;
 
     public Reporter() {
-        this.iterationResults = new ArrayList<IterationResult>();
+        this.iterationResults = new ArrayList<>();
         this.failedIterations = "Failed iterations: ";
     }
 
@@ -98,7 +96,7 @@ public class Reporter {
         StringBuilder builder = new StringBuilder();
         builder.append("<br/><br/><b>Warnings:</b>");
         for (String warning : warnings) {
-            builder.append("<br/>" + warning);
+            builder.append("<br/>").append(warning);
         }
         return builder.toString();
     }

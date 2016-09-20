@@ -1,4 +1,4 @@
-package org.auto.simple.enums;
+package org.auto.simple.report;
 
 public enum Status {
     PASSED("PASSED  "),
