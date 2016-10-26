@@ -2,8 +2,10 @@ package org.auto.simple.tests;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.auto.simple.data.DataFile;
+import org.auto.simple.pages.BasePage;
 import org.auto.simple.report.ErrorsHolder;
 import org.auto.simple.report.Reporter;
 import org.junit.Assert;
@@ -25,9 +27,11 @@ public abstract class BaseTest {
     protected HashMap<String, String> data;
     protected WebDriver browser;
 
+    private static Logger LOG = Logger.getLogger(BaseTest.class.getName());
+
     public BaseTest(String dataFilePath, String testName) throws Exception {
-        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
         this.testName = testName;
         this.dataFilePath = dataFilePath;
     }

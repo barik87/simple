@@ -1,13 +1,19 @@
 package org.auto.simple.pages;
 
+import org.auto.simple.SmartWebElement.SmartWebElement;
 import org.auto.simple.report.ErrorsHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private WebElement edtLogin;
+//    private WebElement edtLogin;
+
+    @FindBy(id = "login")
+    private SmartWebElement edtLogin;
+
     private WebElement edtPassword;
     private WebElement btnLogin;
 
@@ -16,9 +22,9 @@ public class LoginPage extends BasePage {
     }
 
     public void setLogin(String login) {
-        edtLogin = browser.findElement(By.id("login"));
         edtLogin.clear();
-        edtLogin.sendKeys(login);
+        edtLogin.text(login);
+        edtLogin.pressEnter();
     }
 
     public void setPassword(String password) {
