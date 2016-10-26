@@ -21,17 +21,15 @@ public interface SmartWebElement extends WebElement, FindsByLinkText, FindsById,
 
     boolean isEnabled();
 
-    SmartWebElement find(By var);
-
-    SmartWebElement find(String var);
+    SmartWebElement findElement(By var);
 
     SmartWebElement pressEnter();
 
-    SmartWebElement text(String var);
+    SmartWebElement enterText(String var);
 
     boolean isDisplayed();
 
-    String enterText();
+    String text();
 
     String getSelectedValue();
 
