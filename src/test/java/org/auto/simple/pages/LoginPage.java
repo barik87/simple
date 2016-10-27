@@ -7,16 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
 
     @FindBy(id = "login")
     private SmartWebElement edtLogin;
-    private WebElement edtPassword;
-    private WebElement btnLogin;
+    private SmartWebElement edtPassword;
+    private SmartWebElement btnLogin;
 
-    public LoginPage(WebDriver browser) {
-        super(browser);
-    }
+//    public LoginPage(WebDriver browser) {
+//        super(browser);
+//    }
 
     public void setLogin(String login) {
 //        edtLogin = edtLogin.find(By.id("login"));
@@ -25,18 +25,18 @@ public class LoginPage extends BasePage {
     }
 
     public void setPassword(String password) {
-        edtPassword = browser.findElement(By.id("pswd"));
+        edtPassword.findElement(By.id("pswd"));
         edtPassword.clear();
         edtPassword.sendKeys(password);
     }
 
     public void clickLoginButton() {
-        btnLogin = browser.findElement(By.id("btn-login"));
+        btnLogin.findElement(By.id("btn-login"));
         btnLogin.click();
     }
 
     public void verifyLoginButtonEnabled(boolean expectedState) {
-        btnLogin = browser.findElement(By.id("btn-login"));
+        btnLogin.findElement(By.id("btn-login"));
         boolean actualState = btnLogin.getAttribute("disabled") == null;
         if (actualState != expectedState) {
             ErrorsHolder.failIteration("Verification of Login button enabled state failed. Actual: " + actualState

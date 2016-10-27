@@ -1,17 +1,16 @@
 package org.auto.simple.tests;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Logger;
-
 import org.auto.simple.data.DataFile;
-import org.auto.simple.pages.BasePage;
 import org.auto.simple.report.ErrorsHolder;
 import org.auto.simple.report.Reporter;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Class that contains properties and methods which are common for all the tests. Start point of tests execution -
@@ -27,7 +26,7 @@ public abstract class BaseTest {
     protected HashMap<String, String> data;
     protected WebDriver browser;
 
-    private static Logger LOG = Logger.getLogger(BaseTest.class.getName());
+    public static Logger log = Logger.getLogger(BaseTest.class.getName());
 
     public BaseTest(String dataFilePath, String testName) throws Exception {
 //        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
@@ -82,6 +81,7 @@ public abstract class BaseTest {
      * are set up.
      */
     private void beforeTestExecute() throws Exception {
+        log.info("Before test");
         this.reporter = new Reporter();
         this.dataTable = new DataFile(dataFilePath).getDataTable();
     }

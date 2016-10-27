@@ -6,6 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class NavigationUtils {
     public static LoginPage startWebApplication(WebDriver browser) {
         browser.get("file:///" + FileSystemUtils.addAbsolutePath("app/index.html"));
-        return new LoginPage(browser);
+        return new LoginPage();
     }
 }

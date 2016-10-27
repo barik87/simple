@@ -19,6 +19,7 @@ public class LoginValidation extends BaseTest {
 
     @Override
     protected void onExecute() {
+        log.info("Tests run");
         startWebApplication();
         enterLogin();
         enterPassword();
