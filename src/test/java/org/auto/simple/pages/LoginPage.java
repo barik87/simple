@@ -2,29 +2,30 @@ package org.auto.simple.pages;
 
 import org.auto.simple.SmartWebElement.PageInit;
 import org.auto.simple.SmartWebElement.SmartWebElement;
+import org.auto.simple.elements.SmartWebElement;
 import org.auto.simple.report.ErrorsHolder;
 import org.omg.CORBA.Object;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(id = "login")
-    private SmartWebElement edtLogin;
-    @FindBy(id = "pswd")
-    private SmartWebElement edtPassword;
-    @FindBy(id = "btn-login")
-    private SmartWebElement btnLogin;
-    private LoginPage loginPage;
+//    @FindBy(id = "login")
+    private SmartWebElement edtLogin = new SmartWebElement(By.id("login"));
+//    @FindBy(id = "pswd")
+//    private SmartWebElement edtPassword;
+//    @FindBy(id = "btn-login")
+//    private SmartWebElement btnLogin;
+//    private LoginPage loginPage;
 
     public LoginPage(WebDriver browser) {
         super(browser);
     }
 
     public void setLogin(String login) {
-        edtLogin.clear();
-        edtLogin.enterText(login).pressEnter();
+        edtLogin.clearAndType(browser, login);
     }
 
     public void setPassword(String password) {
