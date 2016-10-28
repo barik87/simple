@@ -26,8 +26,8 @@ public abstract class BaseTest {
     protected WebDriver browser;
 
     public BaseTest(String dataFilePath, String testName) throws Exception {
-        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
         this.testName = testName;
         this.dataFilePath = dataFilePath;
     }
