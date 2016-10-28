@@ -10,7 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  * Class that contains properties and methods which are common for all the tests. Start point of tests execution -
@@ -27,6 +28,8 @@ public abstract class BaseTest {
     protected WebDriver browser;
 
     public static Logger log = Logger.getLogger(BaseTest.class.getName());
+
+
 
     public BaseTest(String dataFilePath, String testName) throws Exception {
 //        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
@@ -46,11 +49,14 @@ public abstract class BaseTest {
                 beforeIteration(iter);
                 try {
                     startBrowser();
+                    log.info("Browser started");
+                    log.info("tests executed");
                     onExecute();
                     closeBrowser();
                     onIterationPassed();
                 } catch (AssertionError | Exception error) {
                     onError(error);
+                    log.info("Test FAILED");
                 }
             }
         } catch (AssertionError | Exception configException) {
@@ -81,15 +87,16 @@ public abstract class BaseTest {
      * are set up.
      */
     private void beforeTestExecute() throws Exception {
-        log.info("Before test");
         this.reporter = new Reporter();
         this.dataTable = new DataFile(dataFilePath).getDataTable();
+        log.info("Before test ");
     }
 
     private void beforeIteration(int iteration) {
         ErrorsHolder.cleanUp();
         reporter.setCurrentIteration(iteration + 1);
         data = dataTable.get(iteration);
+        log.info("Before iteration " + data);
     }
 
     private void onError(Throwable fail) {
@@ -97,8 +104,10 @@ public abstract class BaseTest {
         String message = "";
         if (fail.getMessage() != null) {
             message = fail.getMessage();
+            log.info("Error " + message);
         }
         reporter.onIterationFailed(message);
+
         closeBrowser();
     }
 
