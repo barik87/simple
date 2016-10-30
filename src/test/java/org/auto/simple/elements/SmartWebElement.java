@@ -14,6 +14,18 @@ public class SmartWebElement {
 
     public void clearAndType(WebDriver driver, String var) {
         WebElement element = driver.findElement(by);
-        // TODO: perform actions
+        element.clear();
+        element.sendKeys(var);
+    }
+
+    public void click(WebDriver driver) {
+        WebElement element = driver.findElement(by);
+        element.click();
+    }
+
+    public boolean getAttribute(WebDriver driver, String var) {
+        WebElement element = driver.findElement(by);
+        return element.getAttribute(var) == null;
+
     }
 }
