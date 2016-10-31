@@ -11,9 +11,9 @@ public class PizzaPage extends BasePage {
 
     private SmartWebElement createButton = new SmartWebElement(By.id("predefined"));
     private SmartWebElement checkBoxGoup = new SmartWebElement(By.id("ingredient"));
-    private SmartWebElement sizeButton = new SmartWebElement(By.id(""));
+    private SmartWebElement sizeButton = new SmartWebElement(By.id("size"));
     private SmartWebElement cheeseRadioButton = new SmartWebElement(By.name("cheese"));
-    private SmartWebElement orderButton = new SmartWebElement(By.id(""));
+    private SmartWebElement orderButton = new SmartWebElement(By.id("btn-order"));
     private SmartWebElement successMessage = new SmartWebElement(By.className("success"));
     private SmartWebElement ingredientsMessage = new SmartWebElement(By.xpath(".//*[@id='result']/br[3]"));
     private SmartWebElement sizeMessage = new SmartWebElement(By.xpath(".//*[@id='result']/br[4]"));
