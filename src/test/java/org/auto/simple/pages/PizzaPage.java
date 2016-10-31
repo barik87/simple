@@ -23,7 +23,7 @@ public class PizzaPage extends BasePage {
         super(browser);
     }
 
-    public void createPizza(String pizzaType) {
+    public void choosePizza(String pizzaType) {
         createButton.selectDropdown(browser, pizzaType);
     }
 
