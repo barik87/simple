@@ -3,7 +3,9 @@ package org.auto.simple.elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -42,13 +44,19 @@ public class SmartWebElement {
         List<WebElement> elements = driver.findElements(by);
         elements.clear();
         for (WebElement element : elements) {
-            if (!element.isSelected())
+            if (!element.findElement(By.className(String.valueOf(var))).isSelected())
                 element.click();
         }
     }
 
-    public void getElementText(WebDriver driver) {
+    public String getElementText(WebDriver driver) {
         WebElement element = driver.findElement(by);
-        element.getText();
+        return element.getText();
+
+    }
+
+    public void waitForElement(WebDriver driver) {
+        WebDriverWait driverWait = new WebDriverWait(driver, 5);
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }

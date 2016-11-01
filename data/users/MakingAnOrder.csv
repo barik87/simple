@@ -1,1 +1,5 @@
-Ingredients =
+PizzaType,CheeseQty,Size,Ingredient,Ingredient,Ingredient,Ingredient,Ingredient,Ingredient,ExpectedSuccessMessage
+own,Standard,30,-,-,-,-,-,-,Your order has been successfully processed.
+americana,Double,36,-,-,-,-,-,-,Your order has been successfully processed.
+carbonara,Standard,22,-,-,-,-,-,-,Your order has been successfully processed.
+veggie,Standard,30,-,-,-,-,-,-,Your order has been successfully processed.
