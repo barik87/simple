@@ -10,7 +10,7 @@ import java.util.List;
 public class PizzaPage extends BasePage {
 
     private SmartWebElement createButton = new SmartWebElement(By.id("predefined"));
-    private SmartWebElement checkBoxGoup = new SmartWebElement(By.id("ingredient"));
+    private SmartWebElement checkBoxGoup = new SmartWebElement(By.className("ingredient"));
     private SmartWebElement sizeButton = new SmartWebElement(By.id("size"));
     private SmartWebElement cheeseRadioButton = new SmartWebElement(By.name("cheese"));
     private SmartWebElement orderButton = new SmartWebElement(By.id("btn-order"));
@@ -27,7 +27,7 @@ public class PizzaPage extends BasePage {
         createButton.selectDropdown(browser, pizzaType);
     }
 
-    public void ingredientsCheck(List ingredient) {
+    public void ingredientsCheck(String ingredient) {
         checkBoxGoup.multipleSelect(browser, ingredient);
     }
 

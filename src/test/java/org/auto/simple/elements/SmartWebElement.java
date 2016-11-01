@@ -38,10 +38,13 @@ public class SmartWebElement {
 
     }
 
-    public void multipleSelect(WebDriver driver, List<WebElement> list) {
+    public void multipleSelect(WebDriver driver, String... var) {
         List<WebElement> elements = driver.findElements(by);
         elements.clear();
-        list.stream().filter(element -> !element.isSelected()).forEach(WebElement::click);
+        for (WebElement element : elements) {
+            if (!element.isSelected())
+                element.click();
+        }
     }
 
     public void getElementText(WebDriver driver) {

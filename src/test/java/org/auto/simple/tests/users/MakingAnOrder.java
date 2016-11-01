@@ -31,7 +31,7 @@ public class MakingAnOrder extends BaseTest {
     private void createPizza() {
         pizzaPage.choosePizza(data.get("PizzaType"));
         if(data.get("PizzaType") == "Create your own") {
-//            pizzaPage.ingredientsCheck(data.get("Ingr1st"));
+            pizzaPage.ingredientsCheck(data.get("Ingredients"));
         }
     }
 
