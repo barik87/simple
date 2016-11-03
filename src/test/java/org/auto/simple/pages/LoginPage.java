@@ -2,6 +2,7 @@ package org.auto.simple.pages;
 
 import org.auto.simple.elements.SmartWebElement;
 import org.auto.simple.report.ErrorsHolder;
+import org.auto.simple.webBrowser.WebBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,19 +17,19 @@ public class LoginPage extends BasePage {
     }
 
     public void setLogin(String login) {
-        edtLogin.clearAndType(browser, login);
+        edtLogin.clearAndType(login);
     }
 
     public void setPassword(String password) {
-        edtPassword.clearAndType(browser, password);
+        edtPassword.clearAndType(password);
     }
 
     public void clickLoginButton() {
-        btnLogin.click(browser);
+        btnLogin.click();
     }
 
     public void verifyLoginButtonEnabled(boolean expectedState) {
-        boolean actualState = btnLogin.getAttribute(browser, "disabled");
+        boolean actualState = btnLogin.getAttribute("disabled");
         if (actualState != expectedState) {
             ErrorsHolder.failIteration("Verification of Login button enabled state failed. Actual: " + actualState
                     + ". Expected: " + expectedState + ".");

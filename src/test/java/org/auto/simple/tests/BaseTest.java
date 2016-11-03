@@ -1,22 +1,23 @@
 package org.auto.simple.tests;
 
+import org.apache.log4j.Logger;
 import org.auto.simple.data.DataFile;
 import org.auto.simple.report.ErrorsHolder;
 import org.auto.simple.report.Reporter;
+import org.auto.simple.webBrowser.Browser;
+import org.auto.simple.webBrowser.WebBrowser;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
 import java.util.List;
-import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
+
+import static org.auto.simple.webBrowser.WebBrowser.*;
 
 /**
  * Class that contains properties and methods which are common for all the tests. Start point of tests execution -
  * testTemplate() method.
- * 
+ *
  * @author Maksym Barvinskyi
  */
 public abstract class BaseTest {
@@ -25,15 +26,15 @@ public abstract class BaseTest {
     private String testName;
     private List<HashMap<String, String>> dataTable;
     protected HashMap<String, String> data;
-    protected WebDriver browser;
+//    protected WebDriver browser;
 
     public static Logger log = Logger.getLogger(BaseTest.class.getName());
-
 
 
     public BaseTest(String dataFilePath, String testName) throws Exception {
 //        System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
 //        System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
+        WebBrowser.setBrowser(Browser.CHROME);
         this.testName = testName;
         this.dataFilePath = dataFilePath;
     }
@@ -48,11 +49,11 @@ public abstract class BaseTest {
             for (int iter = 0; iter < dataTable.size(); iter++) {
                 beforeIteration(iter);
                 try {
-                    startBrowser();
+                    WebBrowser.getInstance();
                     log.info("Browser started");
                     log.info("tests executed");
                     onExecute();
-                    closeBrowser();
+                    quitBrowser();
                     onIterationPassed();
                 } catch (AssertionError | Exception error) {
                     onError(error);
@@ -74,10 +75,9 @@ public abstract class BaseTest {
     /**
      * Starts the browser instance.
      */
-    private void startBrowser() {
-        this.browser = new ChromeDriver();
-    }
-
+//    private void startBrowser() {
+//        this.browser = new ChromeDriver();
+//    }
     private void onIterationPassed() {
         reporter.onIterationPassed();
     }
@@ -108,7 +108,7 @@ public abstract class BaseTest {
         }
         reporter.onIterationFailed(message);
 
-        closeBrowser();
+        quitBrowser();
     }
 
     private void afterTestExecute() {
@@ -124,7 +124,7 @@ public abstract class BaseTest {
     /**
      * Closes the browser instance.
      */
-    private void closeBrowser() {
-        this.browser.quit();
-    }
+//    private void closeBrowser() {
+//        quit();
+//    }
 }

@@ -6,7 +6,7 @@ import org.auto.simple.utils.NavigationUtils;
 
 /**
  * This test verifies validation of user credentials on login page.
- * 
+ *
  * @author Maksym Barvinskyi
  */
 public class LoginValidation extends BaseTest {
@@ -27,7 +27,7 @@ public class LoginValidation extends BaseTest {
     }
 
     private void startWebApplication() {
-        loginPage = NavigationUtils.startWebApplication(browser);
+        loginPage = NavigationUtils.startWebApplication();
     }
 
     private void enterLogin() {

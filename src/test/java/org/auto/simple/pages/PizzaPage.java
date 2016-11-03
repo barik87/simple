@@ -5,13 +5,10 @@ import org.auto.simple.report.ErrorsHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.List;
-
 
 public class PizzaPage extends BasePage {
 
     private SmartWebElement createButton = new SmartWebElement(By.id("predefined"));
-    private SmartWebElement checkBoxGoup = new SmartWebElement(By.className("ingredient"));
     private SmartWebElement sizeButton = new SmartWebElement(By.id("size"));
     private SmartWebElement stdCheeseRadioButton = new SmartWebElement(By.xpath(".//div[1]/div/div[2]/input[19]"));
     private SmartWebElement dblCheeseRadioButton = new SmartWebElement(By.xpath(".//div[1]/div/div[2]/input[20]"));
@@ -26,34 +23,46 @@ public class PizzaPage extends BasePage {
     }
 
     public void choosePizza(String pizzaType) {
-        createButton.selectDropdown(browser, pizzaType);
+        createButton.selectDropdown(pizzaType);
     }
 
-    public void ingredientsCheck(String ingredient) {
-        checkBoxGoup.multipleSelect(browser, ingredient);
+    public void ingredientsSelect(String ingredient) {
+        multipleSelect(ingredient);
     }
 
     public void sizeSelect(String size) {
-        sizeButton.selectDropdown(browser, size);
+        sizeButton.selectDropdown(size);
     }
 
     public void cheeseQty(String cheeseQty) {
         if (cheeseQty.equals("Standard")) {
-            stdCheeseRadioButton.click(browser);
-        } else dblCheeseRadioButton.click(browser);
+            stdCheeseRadioButton.click();
+        } else {
+            dblCheeseRadioButton.click();
+        }
+    }
+
+    public void multipleSelect(String var) {
+        String[] elements = var.split(";");
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = elements[i].trim();
+        }
+        for (String element : elements) {
+            SmartWebElement checkBox = new SmartWebElement(By.id(element));
+            checkBox.selectCheckBox();
+        }
     }
 
     public void makeAnOrder() {
-        orderButton.click(browser);
+        orderButton.click();
     }
 
 
     public void verifyExpectedSuccessMessage(String message) {
-        successMessage.waitForElement(browser);
-        String actualMessage = successMessage.getElementText(browser);
+        successMessage.waitForElement();
+        String actualMessage = successMessage.getText();
         if (!actualMessage.contains(message)) {
             ErrorsHolder.failIteration("Verification of Success Order Message failed. Actual: " + actualMessage + ". Expected: " + message + ".");
         }
-
     }
 }
