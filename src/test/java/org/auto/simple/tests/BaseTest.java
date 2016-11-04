@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.auto.simple.data.DataFile;
 import org.auto.simple.report.ErrorsHolder;
 import org.auto.simple.report.Reporter;
-import org.auto.simple.webBrowser.Browser;
+import org.auto.simple.webBrowser.BrowserType;
 import org.auto.simple.webBrowser.WebBrowser;
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public abstract class BaseTest {
     public BaseTest(String dataFilePath, String testName) throws Exception {
         System.setProperty("webdriver.gecko.driver", "drivers/firefox/geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
-        WebBrowser.setBrowserType(Browser.CHROME);
+        WebBrowser.setBrowserType(BrowserType.CHROME);
         this.testName = testName;
         this.dataFilePath = dataFilePath;
     }
