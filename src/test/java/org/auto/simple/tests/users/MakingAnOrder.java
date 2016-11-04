@@ -4,7 +4,6 @@ import org.auto.simple.pages.PizzaPage;
 import org.auto.simple.tests.BaseTest;
 import org.auto.simple.utils.NavigationUtils;
 
-
 public class MakingAnOrder extends BaseTest {
 
     private PizzaPage pizzaPage;
@@ -18,7 +17,6 @@ public class MakingAnOrder extends BaseTest {
         startWebApplication();
         createPizza();
         verifyCreatedPizza();
-
     }
 
     private void startWebApplication() {
@@ -29,11 +27,10 @@ public class MakingAnOrder extends BaseTest {
         pizzaPage.choosePizza(data.get("PizzaType"));
         if (data.get("PizzaType").equals("own")) {
             pizzaPage.ingredientsSelect(data.get("Ingredient"));
-        } else {
-            pizzaPage.sizeSelect(data.get("Size"));
-            pizzaPage.cheeseQty(data.get("CheeseQty"));
-            pizzaPage.makeAnOrder();
         }
+        pizzaPage.sizeSelect(data.get("Size"));
+        pizzaPage.cheeseQty(data.get("CheeseQty"));
+        pizzaPage.makeAnOrder();
     }
 
     private void verifyCreatedPizza() {

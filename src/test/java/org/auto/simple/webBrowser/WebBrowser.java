@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class WebBrowser {
 
     private static WebDriver browser = null;
-    private static Browser browserType;
+    private static BrowserType browserType;
 
     private WebBrowser() {
         // Exists only to defeat instantiation
     }
 
-    public static void setBrowser(Browser browserType) {
+    public static void setBrowserType(BrowserType browserType) {
         WebBrowser.browserType = browserType;
     }
 

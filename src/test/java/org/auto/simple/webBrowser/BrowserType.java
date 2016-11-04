@@ -1,7 +1,7 @@
 package org.auto.simple.webBrowser;
 
 
-public enum Browser {
+public enum BrowserType {
 
     CHROME,
     FIREFOX,

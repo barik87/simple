@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SmartWebElement {
 
     private By by;
-    WebDriver browser = WebBrowser.getInstance();
+    private WebDriver browser = WebBrowser.getInstance();
 
     public SmartWebElement(By by) {
         this.by = by;

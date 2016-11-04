@@ -27,7 +27,14 @@ public class PizzaPage extends BasePage {
     }
 
     public void ingredientsSelect(String ingredient) {
-        multipleSelect(ingredient);
+        String[] elements = ingredient.split(";");
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = elements[i].trim();
+        }
+        for (String element : elements) {
+            SmartWebElement checkBox = new SmartWebElement(By.id(element));
+            checkBox.selectCheckBox();
+        }
     }
 
     public void sizeSelect(String size) {
@@ -39,17 +46,6 @@ public class PizzaPage extends BasePage {
             stdCheeseRadioButton.click();
         } else {
             dblCheeseRadioButton.click();
-        }
-    }
-
-    public void multipleSelect(String var) {
-        String[] elements = var.split(";");
-        for (int i = 0; i < elements.length; i++) {
-            elements[i] = elements[i].trim();
-        }
-        for (String element : elements) {
-            SmartWebElement checkBox = new SmartWebElement(By.id(element));
-            checkBox.selectCheckBox();
         }
     }
 
